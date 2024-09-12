@@ -8,6 +8,7 @@ import AnalyticsTransactions from '@/views/dashboard/AnalyticsTransactions.vue'
 
 // 👉 Images
 import chart from '@images/cards/chart-success.png'
+import charti from '@images/cards/chart-info.png'
 import card from '@images/cards/credit-card-primary.png'
 import paypal from '@images/cards/paypal-error.png'
 import wallet from '@images/cards/wallet-info.png'
@@ -35,9 +36,9 @@ import wallet from '@images/cards/wallet-info.png'
         >
           <CardStatisticsVertical
             v-bind="{
-              title: 'Profit',
+              title: 'Reservations Today/This Week',
               image: chart,
-              stats: '$12,628',
+              stats: '2,628',
               change: 72.80,
             }"
           />
@@ -50,9 +51,9 @@ import wallet from '@images/cards/wallet-info.png'
         >
           <CardStatisticsVertical
             v-bind="{
-              title: 'Sales',
-              image: wallet,
-              stats: '$4,679',
+              title: 'Documents Pending Approval',
+              image: charti,
+              stats: '4,679',
               change: 28.42,
             }"
           />
@@ -85,9 +86,9 @@ import wallet from '@images/cards/wallet-info.png'
         >
           <CardStatisticsVertical
             v-bind=" {
-              title: 'Payments',
-              image: paypal,
-              stats: '$2,468',
+              title: 'Visitors for the Day',
+              image: chart,
+              stats: '268',
               change: -14.82,
             }"
           />
