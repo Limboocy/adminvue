@@ -3,39 +3,38 @@
     <!-- 👉 Footer: left content -->
     <span class="d-flex align-center">
       &copy;
-      {{ new Date().getFullYear() }}
-      Made With
+      2016 All Rights Reserved
       <VIcon
         icon="bx-heart"
         color="error"
         size="1.25rem"
         class="mx-1"
       />
-      By <a
-        href="https://themeselection.com"
+       <a
+        href="https://www.facebook.com/JVDeventandtravel"
         target="_blank"
         rel="noopener noreferrer"
         class="text-primary ms-1"
-      >ThemeSelection</a>
+      >JVD</a>
     </span>
     <!-- 👉 Footer: right content -->
     <span class="d-md-flex gap-x-4 text-primary d-none">
       <a
-        href="https://themeselection.com/license/"
+        href="https://www.facebook.com/JVDeventandtravel"
         target="noopener noreferrer"
-      >License</a>
+      >Terms and Condition</a>
       <a
-        href="https://themeselection.com/"
+        href="https://www.facebook.com/JVDeventandtravel"
         target="noopener noreferrer"
-      >More Themes</a>
+      >Privacy Policy</a>
       <a
-        href="https://demos.themeselection.com/sneat-vuetify-vuejs-admin-template/documentation/guide/laravel-integration/folder-structure.html"
+        href="https://www.facebook.com/JVDeventandtravel"
         target="noopener noreferrer"
-      >Documentation</a>
+      >Booking Condition</a>
       <a
-        href="https://themeselection.com/support/"
+        href="https://www.facebook.com/JVDeventandtravel"
         target="noopener noreferrer"
-      >Support</a>
+      >About</a>
     </span>
   </div>
 </template>

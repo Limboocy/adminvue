@@ -33,8 +33,40 @@ export const routes = [
         component: () => import('@/pages/form-layouts.vue'),
       },
       {
-        path: 'facility-reservation',
-        component: () => import('@/pages/facility-reservation.vue'),
+        path: 'facility-management',
+        component: () => import('@/pages/facility/facility-management.vue'),
+      },
+      {
+        path: 'facility-request',
+        component: () => import('@/pages/facility/facility-request.vue'),
+      },
+      {
+        path: 'facility-calendar',
+        component: () => import('@/pages/facility/facility-calendar.vue'),
+      },
+      {
+        path: 'facility-analytics',
+        component: () => import('@/pages/facility/facility-analytics.vue'),
+      },
+      {
+        path: 'facility-audit',
+        component: () => import('@/pages/facility/facility-audit.vue'),
+      },
+      {
+        path: 'visitor-registration',
+        component: () => import('@/pages/visitor/visitor-registration.vue'),
+      },
+      {
+        path: 'visitor-approval',
+        component: () => import('@/pages/visitor/visitor-approval.vue'),
+      },
+      {
+        path: 'visitor-log',
+        component: () => import('@/pages/visitor/visitor-log.vue'),
+      },
+      {
+        path: 'visitor-analytics',
+        component: () => import('@/pages/visitor/visitor-analytics.vue'),
       },
     ],
   },

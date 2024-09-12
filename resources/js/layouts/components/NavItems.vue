@@ -10,7 +10,7 @@ import VerticalNavLink from '@layouts/components/VerticalNavLink.vue';
     :item="{
       title: 'Dashboards',
       badgeContent: '1',
-      badgeClass: 'bg-error',
+      badgeClass: 'bg-light-primary text-primary',
       icon: 'bx-home-smile',
     }"
   >
@@ -28,21 +28,7 @@ import VerticalNavLink from '@layouts/components/VerticalNavLink.vue';
       heading: 'Apps & Pages',
     }"
   />
- <VerticalNavLink
-    :item="{
-      title: 'Account Settings',
-      icon: 'bx-user',
-      to: '/account-settings',
-    }"
-  />
 
-  <VerticalNavLink
-    :item="{
-      title: 'Login',
-      icon: 'bx-log-in',
-      to: '/login',
-    }"
-  />
   <VerticalNavLink
     :item="{
       title: 'Register',
@@ -57,34 +43,159 @@ import VerticalNavLink from '@layouts/components/VerticalNavLink.vue';
       to: '/no-existence',
     }"
   />
-  <VerticalNavLink
+  <VerticalNavGroup
     :item="{
       title: 'Facility Reservation',
-      icon: 'bx-user',
-      to: '/facility-reservation',
+      badgeContent: '5',
+      badgeClass: 'bg-light-primary text-primary',
+      icon: 'bx-arch',
     }"
-  />
-  <VerticalNavLink
+  >
+    <VerticalNavLink
+      :item="{
+        title: 'Facility Management',
+        to: '/facility-management',
+      }"
+    />
+    <VerticalNavLink
+      :item="{
+        title: 'Reservation Requests',
+        to: '/facility-request',
+      }"
+    />
+    <VerticalNavLink
+      :item="{
+        title: 'Calendar Management',
+        to: '/facility-calendar',
+      }"
+    />
+    <VerticalNavLink
+      :item="{
+        title: 'Report and Analytics',
+        to: '/facility-analytics',
+      }"
+    />
+    <VerticalNavLink
+      :item="{
+        title: 'Audit and History',
+        to: '/facility-audit',
+      }"
+    />
+  </VerticalNavGroup>
+ 
+  <VerticalNavGroup
     :item="{
       title: 'Visitor Management',
+      badgeContent: '4',
+      badgeClass: 'bg-light-primary text-primary',
       icon: 'bx-user',
-      to: '/blank',
     }"
-  />
-  <VerticalNavLink
+  >
+    <VerticalNavLink
+      :item="{
+        title: 'Visitor Registration',
+        to: '/visitor-registration',
+      }"
+    />
+    <VerticalNavLink
+      :item="{
+        title: 'Approval and Access Control',
+        to: '/visitor-approval',
+      }"
+    />
+    <VerticalNavLink
+      :item="{
+        title: 'Visitor Log and History',
+        to: '/visitor-log',
+      }"
+    />
+    <VerticalNavLink
+      :item="{
+        title: 'Report and Analytics',
+        to: '/visitor-analytics',
+      }"
+    />
+  </VerticalNavGroup>
+
+  <VerticalNavGroup
     :item="{
       title: 'Legal Management',
-      icon: 'bx-user',
-      to: '/blank',
+      badgeContent: '5',
+      badgeClass: 'bg-light-primary text-primary',
+      icon: 'bx-archive',
     }"
-  />
-  <VerticalNavLink
+  >
+    <VerticalNavLink
+      :item="{
+        title: 'Facility Management',
+        to: '/facility-management',
+      }"
+    />
+    <VerticalNavLink
+      :item="{
+        title: 'Reservation Requests',
+        to: '/facility-request',
+      }"
+    />
+    <VerticalNavLink
+      :item="{
+        title: 'Calendar Management',
+        to: '/facility-calendar',
+      }"
+    />
+    <VerticalNavLink
+      :item="{
+        title: 'Report and Analytics',
+        to: '/facility-analytics',
+      }"
+    />
+    <VerticalNavLink
+      :item="{
+        title: 'Audit and History',
+        to: '/facility-audit',
+      }"
+    />
+  </VerticalNavGroup>
+
+  <VerticalNavGroup
     :item="{
       title: 'Document Management',
-      icon: 'bx-user',
-      to: '/blank',
+      badgeContent: '5',
+      badgeClass: 'bg-light-primary text-primary',
+      icon: 'bx-folder',
     }"
-  />
+  >
+    <VerticalNavLink
+      :item="{
+        title: 'Facility Management',
+        to: '/facility-management',
+      }"
+    />
+    <VerticalNavLink
+      :item="{
+        title: 'Reservation Requests',
+        to: '/facility-request',
+      }"
+    />
+    <VerticalNavLink
+      :item="{
+        title: 'Calendar Management',
+        to: '/facility-calendar',
+      }"
+    />
+    <VerticalNavLink
+      :item="{
+        title: 'Report and Analytics',
+        to: '/facility-analytics',
+      }"
+    />
+    <VerticalNavLink
+      :item="{
+        title: 'Audit and History',
+        to: '/facility-audit',
+      }"
+    />
+  </VerticalNavGroup>
 
   <!-- 👉 User Interface -->
   <VerticalNavSectionTitle
