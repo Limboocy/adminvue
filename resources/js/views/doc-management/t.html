@@ -1,0 +1,140 @@
+<!-- eslint-disable camelcase -->
+<!-- eslint-disable vue/component-api-style -->
+<script>
+    import axios from 'axios' // Make sure to install Axios if you haven't already
+    
+    const csrf_token = document.getElementsByName("csrf-token")
+    
+    export default {
+      data () {
+        return {
+          count: 0,
+          files: [],
+          search: '',
+          headers: [
+            {
+              align: 'start',
+              key: 'name',
+              sortable: false,
+              title: 'Customer Name',
+            },
+            { key: 'Passport', title: 'Passport' },
+            { key: 'Visa', title: 'VISA' },
+            { key: 'TravelInsurance', title: 'Travel Insurance' },
+            { key: 'DateModified', title: 'Date Modified' },
+            { key: 'Uuid', title: 'UUID' },
+          ],
+          customer: [
+            {
+              name: 'Gago ka ba boss?',
+              Passport: 159,
+              Visa: 6.0,
+              TravelInsurance: 24,
+              DateModified: 4.0,
+              Uuid: 1,
+            },
+            {
+              name: 'Kupal ka ba boss?',
+              Passport: 237,
+              Visa: 9.0,
+              TravelInsurance: 37,
+              DateModified: 4.3,
+              Uuid: 1,
+            },
+            {
+              name: 'Tanga ka ba boss?',
+              Passport: 262,
+              Visa: 16.0,
+              TravelInsurance: 23,
+              DateModified: 6.0,
+              Uuid: 7,
+            },
+          ],
+        }
+      },
+    
+      //METHODS
+      methods: {
+        say(message){
+          alert(message)
+        },
+        triggerUploadFile(){
+          axios.post("/admin/upload", {}, {
+            headers: {
+              'X-CSRF-TOKEN': csrf_token[0].content,
+            },
+          }).then(function (res){
+    
+          })
+        },
+      },
+    }
+    </script>
+    
+    <template>
+      <VCard
+        title="Customer Document Storage"
+        flat
+      >
+        <template #text>
+          <VTextField
+            v-model="search"
+            label="Search"
+            prepend-inner-icon="mdi-magnify"
+            variant="outlined"
+            hide-details
+            single-line
+          />
+    
+          <VFileInput
+            v-model="files"
+            :show-size="1000"
+            color="deep-purple-accent-4"
+            label="File input"
+            placeholder="Select your files"
+            prepend-icon="mdi-paperclip"
+            variant="outlined"
+            counter
+            multiple
+          >
+            <template #selection="{ fileNames }">
+              <template
+                v-for="(fileName, index) in fileNames"
+                :key="fileName"
+              >
+                <VChip
+                  v-if="index < 2"
+                  class="me-2"
+                  color="deep-purple-accent-4"
+                  size="small"
+                  label
+                >
+                  {{ fileName }}
+                </VChip>
+    
+                <span
+                  v-else-if="index === 2"
+                  class="text-overline text-grey-darken-3 mx-2"
+                >
+                  +{{ files.length - 2 }} File(s)
+                </span>
+              </template>
+            </template>
+          </VFileInput>
+        </template>
+    
+        <VDataTable
+          :headers="headers"
+          :items="customer"
+          :search="search"
+        />
+    
+        <div class=" pl-10 mb-25 pb-10">
+          <!-- Flex container for alignment -->
+          <VBtn @click="triggerUploadFile">
+            Upload File
+          </VBtn>
+        </div>
+      </VCard>
+    </template>
+    

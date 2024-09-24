@@ -43,119 +43,6 @@ import VerticalNavLink from '@layouts/components/VerticalNavLink.vue';
       to: '/no-existence',
     }"
   />
-  <VerticalNavGroup
-    :item="{
-      title: 'Facility Reservation',
-      badgeContent: '5',
-      badgeClass: 'bg-light-primary text-primary',
-      icon: 'bx-arch',
-    }"
-  >
-    <VerticalNavLink
-      :item="{
-        title: 'Facility Management',
-        to: '/facility-management',
-      }"
-    />
-    <VerticalNavLink
-      :item="{
-        title: 'Reservation Requests',
-        to: '/facility-request',
-      }"
-    />
-    <VerticalNavLink
-      :item="{
-        title: 'Calendar Management',
-        to: '/facility-calendar',
-      }"
-    />
-    <VerticalNavLink
-      :item="{
-        title: 'Report and Analytics',
-        to: '/facility-analytics',
-      }"
-    />
-    <VerticalNavLink
-      :item="{
-        title: 'Audit and History',
-        to: '/facility-audit',
-      }"
-    />
-  </VerticalNavGroup>
- 
-  <VerticalNavGroup
-    :item="{
-      title: 'Visitor Management',
-      badgeContent: '4',
-      badgeClass: 'bg-light-primary text-primary',
-      icon: 'bx-user',
-    }"
-  >
-    <VerticalNavLink
-      :item="{
-        title: 'Visitor Registration',
-        to: '/visitor-registration',
-      }"
-    />
-    <VerticalNavLink
-      :item="{
-        title: 'Approval and Access Control',
-        to: '/visitor-approval',
-      }"
-    />
-    <VerticalNavLink
-      :item="{
-        title: 'Visitor Log and History',
-        to: '/visitor-log',
-      }"
-    />
-    <VerticalNavLink
-      :item="{
-        title: 'Report and Analytics',
-        to: '/visitor-analytics',
-      }"
-    />
-  </VerticalNavGroup>
-
-  <VerticalNavGroup
-    :item="{
-      title: 'Legal Management',
-      badgeContent: '5',
-      badgeClass: 'bg-light-primary text-primary',
-      icon: 'bx-archive',
-    }"
-  >
-    <VerticalNavLink
-      :item="{
-        title: 'Facility Management',
-        to: '/facility-management',
-      }"
-    />
-    <VerticalNavLink
-      :item="{
-        title: 'Reservation Requests',
-        to: '/facility-request',
-      }"
-    />
-    <VerticalNavLink
-      :item="{
-        title: 'Calendar Management',
-        to: '/facility-calendar',
-      }"
-    />
-    <VerticalNavLink
-      :item="{
-        title: 'Report and Analytics',
-        to: '/facility-analytics',
-      }"
-    />
-    <VerticalNavLink
-      :item="{
-        title: 'Audit and History',
-        to: '/facility-audit',
-      }"
-    />
-  </VerticalNavGroup>
 
   <VerticalNavGroup
     :item="{
@@ -167,32 +54,8 @@ import VerticalNavLink from '@layouts/components/VerticalNavLink.vue';
   >
     <VerticalNavLink
       :item="{
-        title: 'Facility Management',
-        to: '/facility-management',
-      }"
-    />
-    <VerticalNavLink
-      :item="{
-        title: 'Reservation Requests',
-        to: '/facility-request',
-      }"
-    />
-    <VerticalNavLink
-      :item="{
-        title: 'Calendar Management',
-        to: '/facility-calendar',
-      }"
-    />
-    <VerticalNavLink
-      :item="{
-        title: 'Report and Analytics',
-        to: '/facility-analytics',
-      }"
-    />
-    <VerticalNavLink
-      :item="{
-        title: 'Audit and History',
-        to: '/facility-audit',
+        title: 'Document',
+        to: '/doc-dashboard',
       }"
     />
   </VerticalNavGroup>
