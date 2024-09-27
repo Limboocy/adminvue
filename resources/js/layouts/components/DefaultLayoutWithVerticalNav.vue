@@ -38,14 +38,6 @@ import VerticalNavLayout from '@layouts/components/VerticalNavLayout.vue'
 
         <VSpacer />
 
-        <IconBtn
-          href="https://github.com/themeselection/sneat-vuetify-vuejs-laravel-admin-template-free"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          <VIcon icon="bxl-github" />
-        </IconBtn>
-
         <IconBtn>
           <VIcon icon="bx-bell" />
         </IconBtn>

@@ -1,50 +1,89 @@
 <script setup>
 import { ref } from 'vue'
 
-const navigationTab = ref('Passport') // Default selected tab
+const dialog = ref(false)
+const snackbar = ref(false);
+const snackbarMessage = ref('');
+const navigationTab = ref('Supplier') // Default selected tab
+
+// Initialize an object to hold selected files per tab
+const selectedFilesMap = ref({
+  Supplier: [],
+  Vendor: [],
+  Client: [],
+});
+
+// Custom file size validation rule (Max: 5MB)
+const fileSizeRule = (files) => {
+  const maxFileSize = 5000000; 
+  for (const file of files) {
+    if (file.size > maxFileSize) {
+      return `File ${file.name} exceeds 5MB size limit.`;
+    }
+  }
+  return true;
+};
+
+// Function to handle the upload event
+const onAdvancedUpload = () => {
+  if (selectedFilesMap.value[navigationTab.value].length) {
+    // Log the files being uploaded (you can replace this with an actual upload process)
+    console.log('Files uploaded:', selectedFilesMap.value[navigationTab.value]);
+
+    // Show success message
+    snackbarMessage.value = `${navigationTab.value} files uploaded successfully!`;
+    snackbar.value = true;
+
+    // Clear the selected files after uploading for the current tab
+    selectedFilesMap.value[navigationTab.value] = [];
+  }
+};
+
+// Function to handle the scan file action
+const onScanFile = () => {
+  // Simulate scanning logic (you can add actual scan logic here)
+  console.log('Scanning a file...');
+
+  // Show success message after scanning
+  snackbarMessage.value = 'This feature is under development!';
+  snackbar.value = true;
+};
 
 const tabItems = [
-  'Passport',
-  'Visa',
-  'Insurances', // Updated tab name
+  'Supplier',
+  'Vendor',
+  'Client', // Updated tab name
 ]
-
-// Additional specific button labels for each tab
-const buttonLabelMap = {
-  Passport: 'Upload Passport',
-  Visa: 'Upload Visa',
-  Insurances: 'Upload Insurance', // Updated button label
-}
 
 const search = ref('')
 
 // Define headers and datasets for each tab
 const headersMap = {
-  Passport: [
+  Supplier: [
     {
       align: 'start',
       key: 'name',
       sortable: false,
-      title: 'Passport File',
+      title: 'Supplier File',
     },
     { key: 'owner', title: 'Owner' },
     { key: 'expiration', title: 'Expiration Date' },
     { key: 'date_modified', title: 'Date Modified' },
     { key: 'uuid', title: 'UUID' },
   ],
-  Visa: [
+  Vendor: [
     {
       align: 'start',
       key: 'name',
       sortable: false,
-      title: 'Visa File',
+      title: 'Vendor File',
     },
     { key: 'owner', title: 'Owner' },
     { key: 'expiration', title: 'Expiration Date' },
     { key: 'date_modified', title: 'Date Modified' },
     { key: 'uuid', title: 'UUID' },
   ],
-  Insurances: [ // Updated header for Insurances
+  Client: [ // Updated header for Client
     {
       align: 'start',
       key: 'name',
@@ -60,7 +99,7 @@ const headersMap = {
 
 // Define data for each tab
 const itemsMap = {
-  Passport: [
+  Supplier: [
     {
       name: 'Frozen Yogurt',
       owner: 'John Doe',
@@ -76,23 +115,23 @@ const itemsMap = {
       uuid: '2234-5678-9012',
     },
   ],
-  Visa: [
+  Vendor: [
     {
-      name: 'Visa Application 1',
+      name: 'Vendor Application 1',
       owner: 'Alice Johnson',
       expiration: '2025-11-30',
       date_modified: '2024-09-15',
       uuid: '3234-5678-9012',
     },
     {
-      name: 'Visa Application 2',
+      name: 'Vendor Application 2',
       owner: 'Bob Brown',
       expiration: '2026-02-28',
       date_modified: '2024-09-10',
       uuid: '4234-5678-9012',
     },
   ],
-  Insurances: [ // Updated data for Insurances
+  Client: [ // Updated data for Client
     {
       name: 'Travel Insurance A',
       owner: 'Charlie Green',
@@ -161,9 +200,46 @@ const itemsMap = {
             </VCardText>
 
             <VCardText>
-              <VBtn :label="buttonLabelMap[item]">
-                {{ buttonLabelMap[item] }}
-              </VBtn>
+              <div class="card">
+                <!-- Snackbar for success toast message -->
+                <VSnackbar v-model="snackbar" :timeout="1500" color="red">
+                  {{ snackbarMessage }}
+                </VSnackbar>
+
+                <!-- File Upload -->
+                <VFileInput
+                  v-model="selectedFilesMap[navigationTab]" 
+                  label="Select File(s)"
+                  multiple
+                  show-size
+                  :rules="[fileSizeRule]"
+                  accept="*/*"
+                >
+                  <template #selection="{ fileNames }">
+                    <span>{{ fileNames.length ? fileNames.join(', ') : 'Drag and drop files here to upload.' }}</span>
+                  </template>
+                </VFileInput>
+
+                <!-- Buttons for Upload and Scan -->
+                <div class="button-group mt-3">
+                  <VBtn
+                    color="primary"
+                    @click="onAdvancedUpload"
+                    :disabled="!selectedFilesMap[navigationTab].length"
+                  >
+                    Upload Files
+                  </VBtn>
+
+                  <!-- New Scan Button -->
+                  <VBtn
+                    color="primary"
+                    @click="onScanFile"
+                    class="ml-2"
+                  >
+                    Scan a File
+                  </VBtn>
+                </div>
+              </div>
             </VCardText>
           </VWindowItem>
         </VWindow>
@@ -171,3 +247,5 @@ const itemsMap = {
     </VCol>
   </VRow>
 </template>
+
+
